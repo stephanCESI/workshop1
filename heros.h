@@ -49,6 +49,7 @@ public :
     void demandepseudo();
     int getnbtour();
     Heros(string nom,float pvmax, float pa, int maxmana, int energie);
+    Heros();
 private :
     string nom;
     float pvmax;

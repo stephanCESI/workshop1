@@ -5,8 +5,10 @@ class Jeu {
 public :
 //    Heros getHeros();
 //    Creature getCreature();
-    void demarre(Heros h, Creature c);
-    Jeu(Heros h, Creature c);
+    void demarre();
+    Jeu(Heros &h, Creature &c);
 private :
+    Heros heros;
+    Creature creature;
 
 };

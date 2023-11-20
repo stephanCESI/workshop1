@@ -17,6 +17,8 @@ Creature::Creature(string nom, float pvmax, float pa){
     this-> nbboostpa = 5;
 }
 
+Creature::Creature(){}
+
 string Creature::getnomattaque(){
     return this->nomattaque;
 }

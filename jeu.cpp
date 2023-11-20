@@ -8,33 +8,35 @@
 //Creature Jeu::getCreature(Creature c) {
 //    return c;
 //}
-Jeu::Jeu(Heros h, Creature c) {
+Jeu::Jeu(Heros &h, Creature &c) {
+    this->heros = h;
+    this->creature = c;
 
-}
+};
 
-void Jeu::demarre(Heros h, Creature c) {
-    h.demandepseudo();
-    while (h.getpv() > 0 && c.getpv() > 0 && h.getnbhfuite() == 0)
+void Jeu::demarre() {
+    this->heros.demandepseudo();
+    while (this->heros.getpv() > 0 && this->creature.getpv() > 0 && this->heros.getnbhfuite() == 0)
     {
-        cout << h.tour() << endl;
-        cout << h.affiche() << endl;
-        cout << c.affiche() << endl;
+        cout << this->heros.tour() << endl;
+        cout << this->heros.affiche() << endl;
+        cout << this->creature.affiche() << endl;
         cout << "" << endl;
-        h.fight(c);
+        this->heros.fight(this->creature);
         cout << "" << endl;
-        c.fight(h);
+        this->creature.fight(this->heros);
         cout << "" << endl;
     }
-    if (h.getnbhfuite() == 1) {
-        cout << h.getnom() + " s'enfuit !" << endl;
-        cout << c.getnom() +" a gagne !" << endl;
+    if (this->heros.getnbhfuite() == 1) {
+        cout << this->heros.getnom() + " s'enfuit !" << endl;
+        cout << this->creature.getnom() +" a gagne !" << endl;
     }
-    else if (h.getpv() <= 0) {
-        cout << h.getnom() + " est mort !" << endl;
-        cout << c.getnom() +" a gagne !" << endl;
+    else if (this->heros.getpv() <= 0) {
+        cout << this->heros.getnom() + " est mort !" << endl;
+        cout << this->creature.getnom() +" a gagne !" << endl;
     }
-    else if (c.getpv() <= 0) {
-        cout << c.getnom() + " est mort !" << endl;
-        cout << h.getnom()+" a gagne !" << endl;
+    else if (this->creature.getpv() <= 0) {
+        cout << this->creature.getnom() + " est mort !" << endl;
+        cout << this->heros.getnom()+" a gagne !" << endl;
     }
 };

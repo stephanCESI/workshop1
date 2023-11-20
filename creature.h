@@ -26,6 +26,7 @@ public :
     string getnomvoldevie();
     string getnomboostpa();
     Creature(string nom, float pvmax, float pa);
+    Creature();
 private :
     string nom;
     float pvmax;

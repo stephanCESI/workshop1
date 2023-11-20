@@ -38,6 +38,8 @@ Heros::Heros(string nom,float pvmax, float pa, int maxmana, int energie){
     this -> nbtour = 0;
 }
 
+Heros::Heros(){}
+
 int Heros::getnbtour(){
     return this->nbtour;
 }
