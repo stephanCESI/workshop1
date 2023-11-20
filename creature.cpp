@@ -119,7 +119,7 @@ int Creature::getrandomactioncreature(int min, int max) {
 }
 
 void Creature::fight(Heros &h) {
-    if (h.getpv() >= h.getpvmax() * 0.2) {
+    if (h.getpv() <= h.getpvmax() * 0.2) {
         switch (getrandomactioncreature(1, 2)) {
             case 1:
                 attaque(h);
@@ -129,7 +129,7 @@ void Creature::fight(Heros &h) {
                 break;
         }
     }
-    else if (getpv() >= getpvmax() * 0.8) {
+    else if (getpv() > getpvmax() * 0.6) {
         switch (getrandomactioncreature(1, 2)) {
             case 1:
                 attaque(h);
