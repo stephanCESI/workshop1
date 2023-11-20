@@ -1,0 +1,80 @@
+#include <string>
+#pragma once
+class Creature;
+
+using namespace std;
+
+class Heros {
+public :
+    void attaque(Creature &c);
+    float getpv();
+    void setpv(float pv);
+    int getmana();
+    void setmana(int mana);
+    float getpa();
+    void setpvmax(float pvmax);
+    float getpvmax();
+    void setpa(float pa);
+    string affiche();
+    string getnom();
+    void subitDegat(float degat);
+    int getrandomcritique(int min, int max);
+    int getrandomesquive(int min, int max);
+    void potionheal();
+    void healpourcentmanquant();
+    void boostpa();
+    int getrandomfuite(int min, int max);
+    int hfuite();
+    int getnbhfuite();
+    int getenergie();
+    void setenergie(int energie);
+    int enteruser;
+    void fight(Creature &c);
+    void voldevie(Creature &c);
+    void atkultime(Creature &c, int energie);
+    int getmaxenergie();
+    int getmaxmana();
+    string tour();
+    string affichechoix();
+    void potionmana();
+    int getnbpotionmana();
+    int getnbpotionheal();
+    string getnomattaque();
+    string getnomboostpa();
+    string getnomvoldevie();
+    string getnompotionheal();
+    string getnompotionmana();
+    string getnomultime();
+    string getnomhealpourcent();
+    void demandepseudo();
+    int getnbtour();
+    Heros(string nom,float pvmax, float pa, int maxmana, int energie);
+private :
+    string nom;
+    float pvmax;
+    float pv;
+    int pa;
+    float degat;
+    int min;
+    int max;
+    int nbheal;
+    float pourcentheal;
+    int nbboostpa;
+    int mana;
+    int nbhfuite;
+    int energie;
+    int maxenergie;
+    int minenergie;
+    int maxmana;
+    int nbgivemana;
+    int nbpotionheal;
+    int nbpotionmana;
+    string nomattaque;
+    string nomboostpa;
+    string nomvoldevie;
+    string nompotionheal;
+    string nompotionmana;
+    string nomultime;
+    string nomhealpourcent;
+    int nbtour;
+};
