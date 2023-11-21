@@ -4,8 +4,8 @@
 #include "jeu.h"
 
 int main() {
-    Heros h("Mathice", 100, 10, 10, 0);
-    Creature c("Gorille", 150, 10);
+    Heros h("nom", 500, 50, 10, 0);
+    Creature c("Gorille",c.getrandomplage(120,150),c.getrandomplage(8,12));
     Jeu monjeu(h,c);
     monjeu.demarre();
 }

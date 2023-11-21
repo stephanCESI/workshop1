@@ -46,8 +46,10 @@ public :
     string getnompotionmana();
     string getnomultime();
     string getnomhealpourcent();
+    int getrandomplage(int min, int max);
     void demandepseudo();
     int getnbtour();
+    void setnbtour(int nbtour);
     Heros(string nom,float pvmax, float pa, int maxmana, int energie);
     Heros();
 private :

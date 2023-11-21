@@ -14,7 +14,7 @@ Creature::Creature(string nom, float pvmax, float pa){
     this-> nomattaque = "fracassement";
     this-> nomvoldevie = "morsure";
     this-> nomboostpa = "rage";
-    this-> nbboostpa = 5;
+    this-> nbboostpa = 2;
 }
 
 Creature::Creature(){}
@@ -37,6 +37,10 @@ float Creature::getpv(){
 
 float Creature::getpa(){
     return this->pa;
+}
+
+void Creature::setnom(string nom){
+    this->nom = nom;
 }
 
 void Creature::setpv(float pv){
@@ -81,6 +85,13 @@ int Creature::getrandomesquive(int min, int max) {
     return dis(gen);
 }
 
+int Creature::getrandomplage(int min, int max) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(min, max);
+    return dis(gen);
+}
+
 void Creature::attaque(Heros &h){
     float degat = pa;
     if (11 <= getrandomesquive(min,max) && getrandomesquive(min,max)<= 100) {
@@ -88,6 +99,7 @@ void Creature::attaque(Heros &h){
             cout << "Coup critique !"<< endl;
             degat *= 2;
         }
+        degat = getrandomplage(degat*0.8, degat*1.2);
         cout << getnom() << " utilise " + getnomattaque() + " sur "<<h.getnom()<<" et lui inflige " + to_string(degat) + " degats." << endl;
         h.subitDegat(degat);
     }
@@ -100,6 +112,7 @@ void Creature::voldevie(Heros &h){
     degat = pa * (65.0 / 100.0);
     if (11 <= getrandomesquive(0, 100) && getrandomesquive(0, 100) <= 100) {
         pv = pv + degat * (90.0 / 100.0);
+        degat = getrandomplage(degat*0.8, degat*1.2);
         cout << getnom() << " utilise " + getnomvoldevie() + " sur "<<h.getnom()<<" et lui inflige " + to_string(degat) + " degats." << endl;
         cout << getnom()<<" se heal " + to_string(degat * (80.0 / 100.0)) + " PV." << endl;
         h.subitDegat(degat);

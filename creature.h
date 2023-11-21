@@ -8,6 +8,7 @@ class Creature {
 public :
     string affiche();
     string getnom();
+    void setnom(string nom);
     void attaque(Heros &h);
     float getpv();
     void setpv(float pv);
@@ -19,6 +20,7 @@ public :
     int getrandomcritique(int min, int max);
     int getrandomesquive(int min, int max);
     int getrandomactioncreature(int min, int max);
+    int getrandomplage(int min, int max);
     void fight(Heros &h);
     void voldevie(Heros &h);
     void boostpa();

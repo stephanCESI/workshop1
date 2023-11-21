@@ -44,6 +44,10 @@ int Heros::getnbtour(){
     return this->nbtour;
 }
 
+void Heros::setnbtour(int nbtour){
+    this->nbtour = nbtour;
+}
+
 void Heros::demandepseudo(){
     cout << "Quel est votre nom ?" << endl;
     getline(cin, this->nom);
@@ -215,10 +219,18 @@ int Heros::getrandomesquive(int min, int max) {
     return dis(gen);
 }
 
+int Heros::getrandomplage(int min, int max) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(min, max);
+    return dis(gen);
+}
+
 void Heros::atkultime(Creature &c, int energie) {
     if (energie >= maxenergie) {
         setenergie(minenergie);
         degat = pa * 3;
+        degat = getrandomplage(degat*0.8, degat*1.2);
         c.subitDegat(degat);
         cout << getnom() << " utilise " << getnomultime() << " sur " << c.getnom() << " et lui inflige " << degat << " degats." << endl;
     }
@@ -240,6 +252,7 @@ void Heros::attaque(Creature &c){
         else {
             energie = maxenergie;
         }
+        degat = getrandomplage(degat*0.8, degat*1.2);
         c.subitDegat(degat);
         cout << getnom() << " utilise " << getnomattaque() << " sur " << c.getnom() << " et lui inflige " << degat << " degats." << endl;
     }
@@ -254,6 +267,7 @@ void Heros::voldevie(Creature &c){
         if (11 <= getrandomesquive(0, 100) && getrandomesquive(0, 100) <= 100) {
             energie = energie + 20;
             pv = pv + degat * (85.0 / 100.0);
+            degat = getrandomplage(degat*0.8, degat*1.2);
             c.subitDegat(degat);
             cout << getnom() << " utilise " << getnomvoldevie() << " sur " << c.getnom() << " et lui inflige " << degat << " degats." << endl;
             cout << getnom()<<" se heal " + to_string(degat * (80.0 / 100.0)) + " PV." << endl;
